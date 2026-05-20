@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebGIS Kos Sekitar UPN Veteran Yogyakarta</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://tile.openstreetmap.org">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="landingPage" class="landing-page">
+    <nav class="landing-nav">
+      <div class="landing-logo">
+        <span>UPNVY</span>
+        <strong>WebGIS Kos</strong>
+      </div>
+      <button class="nav-map-button" type="button" data-open-map data-target-page="search">Cari Kos</button>
+    </nav>
+
+    <main class="landing-hero">
+      <div class="hero-content">
+        <p class="eyebrow">Sistem Informasi Geografis</p>
+        <h1>WebGIS Kos Sekitar UPN Veteran Yogyakarta</h1>
+        <p class="hero-copy">
+          Aplikasi pemetaan kos-kosan sekitar Kampus I UPN Veteran Yogyakarta dengan pencarian,
+          filter harga, jenis kos, fasilitas, radius kampus, dan input data langsung dari halaman.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-action" type="button" data-open-map data-target-page="search">Cari Data Kos</button>
+          <button class="secondary-action" type="button" data-open-map data-target-page="input">Input Data Kos</button>
+          <a class="secondary-action" href="#fitur">Lihat Fitur</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <strong>12+</strong>
+            <span>Data kos contoh</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>Kampus UPN</span>
+          </div>
+          <div>
+            <strong>4</strong>
+            <span>Filter fasilitas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-map-preview" aria-hidden="true">
+        <div class="preview-toolbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="preview-map">
+          <div class="preview-campus">UPN</div>
+          <div class="preview-marker marker-blue"></div>
+          <div class="preview-marker marker-pink"></div>
+          <div class="preview-marker marker-green"></div>
+          <div class="preview-radius radius-one"></div>
+          <div class="preview-radius radius-two"></div>
+        </div>
+      </div>
+    </main>
+
+    <section class="front-menu" aria-label="Menu utama WebGIS">
+      <button class="front-menu-card search-card" type="button" data-open-map data-target-page="search">
+        <span>Cari</span>
+        <h2>Cari Data Kos</h2>
+        <p>Lihat peta, cari nama kos, filter harga, jenis kos, fasilitas, dan radius dari Kampus I atau Kampus II.</p>
+      </button>
+      <button class="front-menu-card input-card" type="button" data-open-map data-target-page="input">
+        <span>Input</span>
+        <h2>Input Data Kos</h2>
+        <p>Tambahkan data kos baru, isi atribut, lalu klik titik lokasi langsung di peta.</p>
+      </button>
+    </section>
+
+    <section id="fitur" class="landing-features">
+      <article>
+        <span>01</span>
+        <h2>Data Kos</h2>
+        <p>Menampilkan daftar kos dari GeoJSON dan input tambahan dari form halaman.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>Filter Cepat</h2>
+        <p>Memilah kos berdasarkan harga, jenis, fasilitas, dan jarak radius dari kampus.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>Peta Interaktif</h2>
+        <p>Marker berwarna, popup detail, legenda, dan tampilan responsif untuk laptop maupun HP.</p>
+      </article>
+    </section>
+  </section>
+
+  <div id="appShell" class="app-shell is-hidden">
+    <aside class="sidebar">
+      <header class="brand">
+        <div>
+          <p class="eyebrow">WebGIS Kos</p>
+          <h1>Sekitar UPN Veteran Yogyakarta</h1>
+        </div>
+        <button id="homeButton" class="campus-badge" type="button">Beranda</button>
+      </header>
+
+      <nav class="sidebar-tabs" aria-label="Navigasi WebGIS">
+        <button id="searchTabButton" class="is-active" type="button">Cari Kos</button>
+        <button id="inputTabButton" type="button">Input Data</button>
+      </nav>
+
+      <div id="searchPage" class="sidebar-page">
+        <section class="panel search-panel">
+          <label for="searchInput">Cari kos</label>
+          <input id="searchInput" type="search" placeholder="Contoh: Kos Melati">
+        </section>
+
+        <section class="panel data-tools-panel">
+          <div class="panel-heading">
+            <h2>Kelola Data</h2>
+          </div>
+          <div class="data-tool-grid">
+            <button id="exportButton" type="button">Export GeoJSON</button>
+            <button id="importButton" type="button">Import GeoJSON</button>
+            <button id="resetDataButton" type="button">Reset Data</button>
+          </div>
+          <input id="importInput" class="is-hidden" type="file" accept=".geojson,.json,application/geo+json,application/json">
+          <p class="data-tool-note">Edit dari web tersimpan di browser. Gunakan export agar data bisa disimpan sebagai file.</p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Filter</h2>
+            <button id="resetButton" type="button">Reset</button>
+          </div>
+
+          <div class="filter-group">
+            <label for="typeFilter">Jenis kos</label>
+            <select id="typeFilter">
+              <option value="semua">Semua jenis</option>
+              <option value="putra">Putra</option>
+              <option value="putri">Putri</option>
+              <option value="campur">Campur</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Harga per bulan</label>
+            <div class="price-grid">
+              <input id="minPrice" type="number" min="0" step="50000" placeholder="Min">
+              <input id="maxPrice" type="number" min="0" step="50000" placeholder="Maks">
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="campusFilter">Kampus acuan</label>
+            <select id="campusFilter">
+              <option value="kampus1">Kampus I - Condongcatur</option>
+              <option value="kampus2">Kampus II - Babarsari</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="radiusFilter">Radius dari kampus acuan</label>
+            <select id="radiusFilter">
+              <option value="semua">Semua radius</option>
+              <option value="1">Maks. 1 km</option>
+              <option value="2">Maks. 2 km</option>
+              <option value="3">Maks. 3 km</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Fasilitas</label>
+            <div class="facility-grid">
+              <label><input type="checkbox" value="WiFi" class="facilityFilter"> WiFi</label>
+              <label><input type="checkbox" value="KM Dalam" class="facilityFilter"> KM Dalam</label>
+              <label><input type="checkbox" value="AC" class="facilityFilter"> AC</label>
+              <label><input type="checkbox" value="Parkir" class="facilityFilter"> Parkir</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="summary">
+          <div>
+            <span id="resultCount">0</span>
+            <p>Kos tampil</p>
+          </div>
+          <div>
+            <span id="averagePrice">Rp0</span>
+            <p>Rata-rata harga</p>
+          </div>
+        </section>
+
+        <section class="list-panel">
+          <div class="panel-heading list-heading">
+            <h2>Daftar Kos</h2>
+            <span id="activeFilterText">Semua data</span>
+          </div>
+          <div id="kosList" class="kos-list"></div>
+        </section>
+      </div>
+
+      <div id="inputPage" class="sidebar-page is-hidden">
+        <section class="panel input-panel">
+          <div class="panel-heading">
+            <h2 id="formTitle">Input Kos Baru</h2>
+            <button id="clearSavedButton" type="button">Hapus Input</button>
+          </div>
+
+          <p class="input-intro">
+            Isi data kos di sini. Untuk koordinat, klik tombol Pilih Titik lalu klik lokasi di peta.
+          </p>
+
+          <form id="kosForm" class="kos-form">
+            <input id="editId" type="hidden">
+
+            <div class="filter-group">
+              <label for="newName">Nama kos</label>
+              <input id="newName" type="text" placeholder="Contoh: Kos Sakura" required>
+            </div>
+
+            <div class="filter-group">
+              <label for="newAddress">Alamat singkat</label>
+              <input id="newAddress" type="text" placeholder="Contoh: Seturan, Depok" required>
+            </div>
+
+            <div class="form-grid">
+            <div class="filter-group">
+              <label for="newPrice">Harga</label>
+              <input id="newPrice" type="number" min="0" step="50000" placeholder="900000" required>
+            </div>
+            <div class="filter-group">
+              <label for="newType">Jenis</label>
+              <select id="newType" required>
+                <option value="putra">Putra</option>
+                <option value="putri">Putri</option>
+                <option value="campur">Campur</option>
+              </select>
+            </div>
+          </div>
+
+            <div class="form-grid">
+            <div class="filter-group">
+              <label for="newLat">Latitude</label>
+              <input id="newLat" type="number" step="0.000001" placeholder="-7.762900" required>
+            </div>
+            <div class="filter-group">
+              <label for="newLng">Longitude</label>
+              <input id="newLng" type="number" step="0.000001" placeholder="110.409900" required>
+            </div>
+          </div>
+
+            <div class="filter-group">
+            <label for="newContact">Kontak</label>
+            <input id="newContact" type="text" placeholder="08xx-xxxx-xxxx">
+          </div>
+
+            <div class="filter-group">
+            <label>Fasilitas</label>
+            <div class="facility-grid">
+              <label><input type="checkbox" value="WiFi" class="newFacility"> WiFi</label>
+              <label><input type="checkbox" value="KM Dalam" class="newFacility"> KM Dalam</label>
+              <label><input type="checkbox" value="AC" class="newFacility"> AC</label>
+              <label><input type="checkbox" value="Parkir" class="newFacility"> Parkir</label>
+            </div>
+          </div>
+
+            <button id="submitButton" class="submit-button" type="submit">Tambah ke Peta</button>
+            <button id="cancelEditButton" class="secondary-form-button is-hidden" type="button">Batal Edit</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </aside>
+
+    <main class="map-area">
+      <div class="map-tools">
+        <button id="toggleSidebarButton" type="button">Panel</button>
+        <button id="pickLocationButton" type="button">Pilih Titik</button>
+        <button id="campusFocusButton" type="button">Kampus</button>
+        <button id="themeButton" type="button">Kontras</button>
+      </div>
+      <div id="map"></div>
+      <div id="pickHint" class="pick-hint is-hidden">
+        Klik lokasi kos di peta untuk mengisi latitude dan longitude.
+      </div>
+      <div class="map-note">
+        <strong>Data contoh.</strong> Kampus I dan II memakai titik perkiraan. Validasi koordinat kos dengan survei lapangan sebelum digunakan resmi.
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

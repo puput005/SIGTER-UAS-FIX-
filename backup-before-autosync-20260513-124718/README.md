@@ -2,18 +2,6 @@
 
 Aplikasi WebGIS sederhana untuk menampilkan persebaran kos-kosan di sekitar UPN "Veteran" Yogyakarta Kampus I. Proyek ini dibuat dengan HTML, CSS, JavaScript, Leaflet.js, OpenStreetMap, dan data GeoJSON.
 
-## Status Open Source
-
-Project ini dirilis sebagai open-source dengan lisensi MIT. Kamu boleh memakai, memodifikasi, membagikan, dan mengembangkan project ini selama tetap menyertakan lisensi.
-
-File penting untuk open-source:
-
-- `LICENSE`: lisensi MIT.
-- `CONTRIBUTING.md`: panduan kontribusi.
-- `CODE_OF_CONDUCT.md`: aturan kolaborasi.
-- `SECURITY.md`: catatan keamanan.
-- `.gitignore`: daftar file yang tidak perlu diupload ke Git.
-
 ## Fitur
 
 - Peta interaktif berpusat di area UPN "Veteran" Yogyakarta Kampus I.
@@ -38,27 +26,6 @@ File penting untuk open-source:
 5. Browser akan membuka aplikasi WebGIS.
 
 Catatan: jangan membuka `index.html` langsung dengan klik dua kali, karena browser dapat memblokir pemuatan file `data/kos.geojson`. Gunakan Live Server atau server lokal.
-
-## Cara Upload ke GitHub
-
-1. Buat repository baru di GitHub.
-2. Upload file project ini, terutama:
-   - `index.html`
-   - `style.css`
-   - `app.js`
-   - `data/`
-   - `supabase-config.js`
-   - `supabase-schema.sql`
-   - `README.md`
-   - `LICENSE`
-   - `CONTRIBUTING.md`
-   - `CODE_OF_CONDUCT.md`
-   - `SECURITY.md`
-3. Aktifkan GitHub Pages melalui **Settings > Pages**.
-4. Pilih branch `main` dan folder `/root`.
-5. Tunggu GitHub membuat link publik.
-
-File presentasi `.pptx`, file backup, file log, dan file sementara Office tidak perlu diupload karena sudah dikecualikan melalui `.gitignore`.
 
 ## Input Data Langsung dari Halaman WebGIS
 
@@ -98,8 +65,6 @@ window.SUPABASE_CONFIG = {
 ```
 
 Setelah itu upload/publish semua file website. Saat Supabase aktif, semua orang yang membuka website bisa menambah, mengedit, dan menghapus data kos yang sama.
-
-Website akan melakukan sinkronisasi otomatis setiap 10 detik. Jadi jika satu pengguna menambah, mengedit, atau menghapus data, pengguna lain yang sedang membuka website akan mendapat pembaruan tanpa perlu refresh manual. Sinkronisasi juga berjalan saat tab browser dibuka kembali atau jendela browser difokuskan lagi.
 
 Catatan: aturan di `supabase-schema.sql` dibuat terbuka untuk kebutuhan praktikum. Untuk website produksi sungguhan, sebaiknya tambah login/admin agar tidak semua orang bebas menghapus data.
 

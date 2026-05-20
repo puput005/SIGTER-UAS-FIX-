@@ -1,0 +1,202 @@
+{
+  "type": "FeatureCollection",
+  "name": "Data Kos Sekitar UPN Veteran Yogyakarta",
+  "metadata": {
+    "catatan": "Data ini adalah data dummy untuk latihan WebGIS. Nama, harga, kontak, fasilitas, dan koordinat harus diganti atau divalidasi dengan hasil survei lapangan/data resmi sebelum dipakai untuk tugas akhir, skripsi, publikasi, atau keputusan bisnis.",
+    "pusat_peta": "UPN Veteran Yogyakarta Kampus I, Jl. Padjajaran, Condongcatur, Sleman"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-001",
+        "nama": "Kos Melati Condongcatur",
+        "alamat": "Gang Melati, Condongcatur",
+        "harga": 850000,
+        "jenis": "putri",
+        "fasilitas": ["WiFi", "KM Dalam", "Parkir"],
+        "kontak": "08xx-xxxx-1001"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41072, -7.76082]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-002",
+        "nama": "Kos Garuda Seturan",
+        "alamat": "Jl. Seturan Raya",
+        "harga": 1100000,
+        "jenis": "putra",
+        "fasilitas": ["WiFi", "AC", "Parkir"],
+        "kontak": "08xx-xxxx-1002"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41508, -7.76471]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-003",
+        "nama": "Kos Anggrek Tambakbayan",
+        "alamat": "Tambakbayan, Caturtunggal",
+        "harga": 750000,
+        "jenis": "campur",
+        "fasilitas": ["WiFi", "Parkir"],
+        "kontak": "08xx-xxxx-1003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40795, -7.76639]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-004",
+        "nama": "Kos Mawar Gejayan",
+        "alamat": "Jl. Affandi, Gejayan",
+        "harga": 1300000,
+        "jenis": "putri",
+        "fasilitas": ["WiFi", "KM Dalam", "AC", "Parkir"],
+        "kontak": "08xx-xxxx-1004"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.39884, -7.76029]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-005",
+        "nama": "Kos Cendana Ringroad",
+        "alamat": "Dekat Ringroad Utara",
+        "harga": 950000,
+        "jenis": "putra",
+        "fasilitas": ["WiFi", "KM Dalam", "Parkir"],
+        "kontak": "08xx-xxxx-1005"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40575, -7.75874]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-006",
+        "nama": "Kos Nusa Indah Babarsari",
+        "alamat": "Jl. Babarsari, Depok",
+        "harga": 1000000,
+        "jenis": "campur",
+        "fasilitas": ["WiFi", "AC", "Parkir"],
+        "kontak": "08xx-xxxx-1006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41653, -7.77248]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-007",
+        "nama": "Kos Srikandi Kaliwaru",
+        "alamat": "Kaliwaru, Condongcatur",
+        "harga": 700000,
+        "jenis": "putri",
+        "fasilitas": ["WiFi", "Parkir"],
+        "kontak": "08xx-xxxx-1007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40092, -7.75486]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-008",
+        "nama": "Kos Wijaya Kledokan",
+        "alamat": "Kledokan, Caturtunggal",
+        "harga": 1200000,
+        "jenis": "putra",
+        "fasilitas": ["WiFi", "KM Dalam", "AC", "Parkir"],
+        "kontak": "08xx-xxxx-1008"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41237, -7.77331]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-009",
+        "nama": "Kos Kenanga Perumnas",
+        "alamat": "Perumnas Condongcatur",
+        "harga": 650000,
+        "jenis": "campur",
+        "fasilitas": ["WiFi"],
+        "kontak": "08xx-xxxx-1009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41422, -7.75661]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-010",
+        "nama": "Kos Bougenville Seturan",
+        "alamat": "Gang Bougenville, Seturan",
+        "harga": 1400000,
+        "jenis": "putri",
+        "fasilitas": ["WiFi", "KM Dalam", "AC", "Parkir"],
+        "kontak": "08xx-xxxx-1010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41872, -7.76772]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-011",
+        "nama": "Kos Puri Cemara",
+        "alamat": "Jl. Nusa Indah, Condongcatur",
+        "harga": 900000,
+        "jenis": "putra",
+        "fasilitas": ["WiFi", "KM Dalam"],
+        "kontak": "08xx-xxxx-1011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40804, -7.75472]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kos-012",
+        "nama": "Kos Harmoni Tambakbayan",
+        "alamat": "Dekat Selokan Mataram",
+        "harga": 800000,
+        "jenis": "campur",
+        "fasilitas": ["WiFi", "Parkir", "KM Dalam"],
+        "kontak": "08xx-xxxx-1012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40418, -7.76812]
+      }
+    }
+  ]
+}

@@ -2,18 +2,6 @@
 
 Aplikasi WebGIS sederhana untuk menampilkan persebaran kos-kosan di sekitar UPN "Veteran" Yogyakarta Kampus I. Proyek ini dibuat dengan HTML, CSS, JavaScript, Leaflet.js, OpenStreetMap, dan data GeoJSON.
 
-## Status Open Source
-
-Project ini dirilis sebagai open-source dengan lisensi MIT. Kamu boleh memakai, memodifikasi, membagikan, dan mengembangkan project ini selama tetap menyertakan lisensi.
-
-File penting untuk open-source:
-
-- `LICENSE`: lisensi MIT.
-- `CONTRIBUTING.md`: panduan kontribusi.
-- `CODE_OF_CONDUCT.md`: aturan kolaborasi.
-- `SECURITY.md`: catatan keamanan.
-- `.gitignore`: daftar file yang tidak perlu diupload ke Git.
-
 ## Fitur
 
 - Peta interaktif berpusat di area UPN "Veteran" Yogyakarta Kampus I.
@@ -23,8 +11,7 @@ File penting untuk open-source:
 - Pencarian berdasarkan nama kos.
 - Filter jenis kos, harga, fasilitas, dan radius 1 km, 2 km, atau 3 km.
 - Form input kos baru langsung dari halaman WebGIS.
-- Edit dan hapus data kos dari halaman WebGIS.
-- Bisa memakai Supabase agar data input/edit tersimpan online saat website dipublish.
+- Edit, hapus, import, export, dan reset data kos dari halaman WebGIS.
 - Pilihan kampus acuan: Kampus I Condongcatur dan Kampus II Babarsari.
 - Legenda warna marker.
 - Tampilan responsif untuk laptop dan HP.
@@ -39,27 +26,6 @@ File penting untuk open-source:
 
 Catatan: jangan membuka `index.html` langsung dengan klik dua kali, karena browser dapat memblokir pemuatan file `data/kos.geojson`. Gunakan Live Server atau server lokal.
 
-## Cara Upload ke GitHub
-
-1. Buat repository baru di GitHub.
-2. Upload file project ini, terutama:
-   - `index.html`
-   - `style.css`
-   - `app.js`
-   - `data/`
-   - `supabase-config.js`
-   - `supabase-schema.sql`
-   - `README.md`
-   - `LICENSE`
-   - `CONTRIBUTING.md`
-   - `CODE_OF_CONDUCT.md`
-   - `SECURITY.md`
-3. Aktifkan GitHub Pages melalui **Settings > Pages**.
-4. Pilih branch `main` dan folder `/root`.
-5. Tunggu GitHub membuat link publik.
-
-File presentasi `.pptx`, file backup, file log, dan file sementara Office tidak perlu diupload karena sudah dikecualikan melalui `.gitignore`.
-
 ## Input Data Langsung dari Halaman WebGIS
 
 Saat aplikasi dibuka dengan Live Server, gunakan panel **Input Kos Baru** di sidebar untuk menambahkan kos. Setelah tombol **Tambah ke Peta** ditekan, marker baru langsung muncul di peta dan daftar kos.
@@ -70,38 +36,17 @@ Jika ingin data permanen di proyek, salin data kos tersebut ke file `data/kos.ge
 
 Tombol **Hapus Input** hanya menghapus data yang pernah dimasukkan lewat form browser. Data bawaan dari `data/kos.geojson` tidak ikut terhapus.
 
-## Edit dan Hapus Data
+## Edit, Hapus, Import, dan Export Data
+
+Pada tab **Cari Kos**, gunakan panel **Kelola Data** untuk:
+
+- **Export GeoJSON**: mengunduh semua data kos yang sedang aktif, termasuk hasil tambah/edit/hapus.
+- **Import GeoJSON**: memuat data kos dari file GeoJSON lain.
+- **Reset Data**: menghapus perubahan di browser dan mengembalikan data awal dari `data/kos.geojson`.
 
 Pada daftar kos atau popup marker, klik **Edit** untuk mengubah data kos. Form input akan otomatis berubah menjadi mode edit. Klik **Simpan Perubahan** agar data di peta dan daftar langsung diperbarui.
 
-Klik **Hapus** untuk menghapus satu data kos dari tampilan.
-
-## Agar Data Bisa Diedit Semua Orang Saat Dipublish
-
-Website statis seperti GitHub Pages, Netlify, atau Vercel tidak bisa menyimpan data bersama tanpa database online. Proyek ini sudah disiapkan untuk memakai **Supabase**.
-
-Langkah singkat:
-
-1. Buat project di Supabase.
-2. Buka menu **SQL Editor**.
-3. Jalankan isi file `supabase-schema.sql`.
-4. Buka **Project Settings > API**.
-5. Salin **Project URL** dan **anon public key**.
-6. Buka file `supabase-config.js`.
-7. Isi seperti ini:
-
-```js
-window.SUPABASE_CONFIG = {
-  url: 'https://project-kamu.supabase.co',
-  anonKey: 'anon-key-kamu'
-};
-```
-
-Setelah itu upload/publish semua file website. Saat Supabase aktif, semua orang yang membuka website bisa menambah, mengedit, dan menghapus data kos yang sama.
-
-Website akan melakukan sinkronisasi otomatis setiap 10 detik. Jadi jika satu pengguna menambah, mengedit, atau menghapus data, pengguna lain yang sedang membuka website akan mendapat pembaruan tanpa perlu refresh manual. Sinkronisasi juga berjalan saat tab browser dibuka kembali atau jendela browser difokuskan lagi.
-
-Catatan: aturan di `supabase-schema.sql` dibuat terbuka untuk kebutuhan praktikum. Untuk website produksi sungguhan, sebaiknya tambah login/admin agar tidak semua orang bebas menghapus data.
+Klik **Hapus** untuk menghapus satu data kos dari tampilan. Perubahan tersimpan di `localStorage` browser. Jika ingin menjadikannya file permanen, klik **Export GeoJSON**, lalu simpan hasilnya sebagai pengganti `data/kos.geojson`.
 
 ## Cara Mengedit Data Kos
 

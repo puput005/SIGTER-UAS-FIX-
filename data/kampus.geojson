@@ -1,0 +1,42 @@
+{
+  "type": "FeatureCollection",
+  "name": "Data Kampus UPN Veteran Yogyakarta",
+  "metadata": {
+    "catatan": "Alamat kampus mengacu pada halaman resmi Peta Kampus UPN Veteran Yogyakarta. Koordinat pada file ini adalah titik perkiraan untuk keperluan latihan WebGIS dan sebaiknya divalidasi ulang sebelum digunakan dalam publikasi atau analisis resmi.",
+    "sumber_alamat": "https://www.upnyk.ac.id/page/peta-kampus"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kampus1",
+        "nama": "UPN Veteran Yogyakarta Kampus I",
+        "nama_singkat": "Kampus I",
+        "area": "Condongcatur",
+        "alamat": "Jl. Padjajaran (Ring Road Utara) No.104, Ngropoh, Condongcatur, Depok, Sleman, Daerah Istimewa Yogyakarta 55283",
+        "telepon": "(0274) 486733 / 0851 5077 2500",
+        "email": "info@upnyk.ac.id"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.40994, -7.76291]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kampus2",
+        "nama": "UPN Veteran Yogyakarta Kampus II",
+        "nama_singkat": "Kampus II",
+        "area": "Babarsari",
+        "alamat": "Jl. Babarsari Jl. Tambak Bayan No.2, Janti, Caturtunggal, Depok, Sleman, Daerah Istimewa Yogyakarta 55281",
+        "telepon": "(0274) 486733 / 0851 5077 2500",
+        "email": "info@upnyk.ac.id"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.41690, -7.77320]
+      }
+    }
+  ]
+}
